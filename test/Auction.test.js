@@ -35,7 +35,7 @@ describe("SimpleAuction", function () {
     const balBefore = await ethers.provider.getBalance(bidder1.address);
     await expect(
       auction.connect(bidder2).placeBid(id, { value: ethers.parseEther("1.3") })
-    ).to.emit(auction, "BidPlaced");
+    ).to.emit(auction, "BidRefunded");
     const balAfter = await ethers.provider.getBalance(bidder1.address);
     expect(balAfter).to.be.gt(balBefore);
   });
@@ -61,6 +61,7 @@ describe("SimpleAuction", function () {
     const balBefore = await ethers.provider.getBalance(owner.address);
     await time.increase(401);
     await auction.connect(owner).endAuction(id);
+    await auction.connect(owner).claimFunds(id);
     const balAfter = await ethers.provider.getBalance(owner.address);
     expect(balAfter).to.be.gt(balBefore);
   });

@@ -16,8 +16,6 @@ module.exports = {
       url: process.env.MONAD_RPC_URL || "https://monad-testnet.drpc.org",
       accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
       chainId: 10143,
-      gas: 2100000,
-      gasPrice: 8000000000,
     },
   },
   paths: {

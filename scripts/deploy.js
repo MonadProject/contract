@@ -16,12 +16,18 @@ async function main() {
   console.log("Save this address for frontend");
   console.log("Explorer:", `https://explorer.monad.xyz/address/${address}`);
 
-  const legacyFrontendPath = path.resolve(__dirname, "../frontend/src/config/deployed.json");
-  const frontendConfigPath = path.resolve(__dirname, "../front/src/config/deployed.json");
+  const legacyFrontendPath = path.resolve(
+    __dirname,
+    "../frontend/src/config/deployed.json"
+  );
+  const frontendConfigPath = path.resolve(
+    __dirname,
+    "../front/src/config/deployed.json"
+  );
   const config = {
     contractAddress: address,
     chainId: chainId,
-    deployTime: new Date().toISOString()
+    deployTime: new Date().toISOString(),
   };
 
   try {
