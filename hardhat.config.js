@@ -14,7 +14,13 @@ module.exports = {
   networks: {
     monad: {
       url: process.env.MONAD_RPC_URL || "https://monad-testnet.drpc.org",
-      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
+      accounts: process.env.PRIVATE_KEY
+        ? [
+            process.env.PRIVATE_KEY.startsWith("0x")
+              ? process.env.PRIVATE_KEY
+              : "0x" + process.env.PRIVATE_KEY,
+          ]
+        : [],
       chainId: 10143,
     },
   },

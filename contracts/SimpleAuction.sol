@@ -79,7 +79,7 @@ contract SimpleAuction {
     /**
      * @dev Places a bid on an auction.
      * @param auctionId The ID of the auction to bid on.
-    /** */
+     */
     function placeBid(uint256 auctionId) external payable {
         Auction storage a = auctions[auctionId];
         require(a.seller != address(0), "Auction not found");
