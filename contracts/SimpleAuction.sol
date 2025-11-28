@@ -103,8 +103,8 @@ contract SimpleAuction {
         uint256 remaining = a.endTime > block.timestamp
             ? a.endTime - block.timestamp
             : 0;
-        if (remaining <= 5 minutes) {
-            a.endTime += 5 minutes;
+        if (remaining <= 1 minutes) {
+            a.endTime += 1 minutes;
             emit TimeExtended(auctionId, a.endTime);
         }
 
